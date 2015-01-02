@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="OpenShift Fuse Claim Demo" resourceRoot="" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ClaimServiceSoapBinding" type="wsdl" bindingName="{http://claimdemo.blogdemo.org/}ClaimServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim?wsdl"><con:part><con:url>http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ClaimService" targetNamespace="http://claimdemo.blogdemo.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://claimdemo.blogdemo.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://claimdemo.blogdemo.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://claimdemo.blogdemo.org/">
+      <xs:complexType name="claimInput">
+        <xs:sequence>
+          <xs:element name="applyItem" type="xs:int"/>
+          <xs:element minOccurs="0" name="claimDate" type="xs:dateTime"/>
+          <xs:element name="claimType" type="xs:int"/>
+          <xs:element minOccurs="0" name="contactPhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerId" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="polno" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="claimOutput">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="claimNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerName" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="claimStatus">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="claimNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerID" type="xs:string"/>
+          <xs:element minOccurs="0" name="polno" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="apply" type="apply"/>
+      <xs:complexType name="apply">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="claimInput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="applyResponse" type="applyResponse"/>
+      <xs:complexType name="applyResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="claimOutput"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="cancel" type="cancel"/>
+      <xs:complexType name="cancel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="cancelResponse" type="cancelResponse"/>
+      <xs:complexType name="cancelResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="claimStatus"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="apply">
+    <wsdl:part element="tns:apply" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelResponse">
+    <wsdl:part element="tns:cancelResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="applyResponse">
+    <wsdl:part element="tns:applyResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancel">
+    <wsdl:part element="tns:cancel" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ClaimServicePortType">
+    <wsdl:operation name="apply">
+      <wsdl:input message="tns:apply" name="apply"></wsdl:input>
+      <wsdl:output message="tns:applyResponse" name="applyResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancel">
+      <wsdl:input message="tns:cancel" name="cancel"></wsdl:input>
+      <wsdl:output message="tns:cancelResponse" name="cancelResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ClaimServiceSoapBinding" type="tns:ClaimServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="apply">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="apply">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="applyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancel">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="cancel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="cancelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClaimService">
+    <wsdl:port binding="tns:ClaimServiceSoapBinding" name="ClaimServicePort">
+      <soap:address location="http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="apply" bindingOperationName="apply" type="Request-Response" outputName="applyResponse" inputName="apply" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cla="http://claimdemo.blogdemo.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cla:apply>
+         <!--Optional:-->
+         <arg0>
+            <applyItem>10002015</applyItem>
+            <!--Optional:-->
+            <claimDate>2015-01-02</claimDate>
+            <claimType>10</claimType>
+            <!--Optional:-->
+            <contactPhone>123-456-7890</contactPhone>
+            <!--Optional:-->
+            <customerId>121212</customerId>
+            <!--Optional:-->
+            <customerName>Some One</customerName>
+            <!--Optional:-->
+            <email>so@sw.com</email>
+            <!--Optional:-->
+            <polno>123456</polno>
+         </arg0>
+      </cla:apply>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://claimdemo.blogdemo.org/ClaimServicePortType/apply"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="cancel" bindingOperationName="cancel" type="Request-Response" outputName="cancelResponse" inputName="cancel" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://fuseclaimdemov100-ghoelzer.rhcloud.com/cxf/claim</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cla="http://claimdemo.blogdemo.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cla:cancel>
+         <!--Optional:-->
+         <arg0>A00099485</arg0>
+      </cla:cancel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://claimdemo.blogdemo.org/ClaimServicePortType/cancel"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
