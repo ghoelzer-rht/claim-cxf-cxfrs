@@ -9,9 +9,9 @@ OpenShift Application Setup
 Make sure you have completed the basic OpenShift developer workstation setup such as installing the RHC client tools, generating and registering the supporting SSH keys.  See https://developers.openshift.com/en/getting-started-overview.html for detailed instructions.  The demo relies on using JBoss Developer Studio Version ?8? for the defined Camel Components, along with Maven for build/deployment, and JDK 1.7. Once complete, perform the following steps to create the ClaimDemo OpenShift application and Fuse Fabric with initial Container.
 
 Step 1 - Clone this git repo into an appropriate location on your developer workstation.
-------
+
 Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <application name> (create OpenShift app, <application name>  with Large gear)
-------  
+  
 
 
 Fuse 6.1 Cartridge Implementation Constraints
