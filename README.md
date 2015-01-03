@@ -1,9 +1,19 @@
 CXF & CXFRS Claim DEMO
 ======================================================
-This demoCreate web services that takes in customer's insurance claim application, also provide another cancel function in case they have changed their mind. 
-Using Camel CXF and CXFRS component to build the web service. And deploy the bundle onto JBoss Fuse Fabric. 
-In this demo, it uses 2 SOAP web service and 2 Restful Web Service, and the restCancel operation is actually reusing the cancel SOAP web service by using the CXF producer component.
+This demo creates web services that accept customer insurance claims, and also provides a claim cancel service.  It has been forked from the original demo created by Red Hat Technical Evangelist Christina Lyn and adapted for deployment onto our iPaaS offering, OpenShift using the Fuse 6.1 cartridge.
 
+Fuse/Apache Camel CXF and CXFRS components are used to build the web services. The demo inlcudes 2 SOAP web service and 2 Restful Web Services. The restCancel operation reuses the cancel SOAP web service by implementing the CXF produce component.
+
+OpenShift Application Setup
+---------------------------
+Make sure you have completed the basic OpenShift developer workstation setup such as installing the RHC client tools, generating and registering the supporting SSH keys.  See https://developers.openshift.com/en/getting-started-overview.html for detailed instructions.  The demo relies on using JBoss Developer Studio Version ?8? for the defined Camel Components, along with Maven for build/deployment, and JDK 1.7. Once complete, perform the following steps to create the ClaimDemo OpenShift application and Fuse Fabric with initial Container.
+
+Step 1 - Clone this git repo into an appropriate location on your developer workstation.
+Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <application name> (create OpenShift app, <application name>  with Large gear)  
+
+
+Fuse 6.1 Cartridge Implementation Constraints
+---------------------------------------------
 
 Setup and configuration
 -----------------------
