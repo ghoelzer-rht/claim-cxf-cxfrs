@@ -10,7 +10,9 @@ Make sure you have completed the basic OpenShift developer workstation setup suc
 
 Step 1 - Clone this git repo into an appropriate location on your developer workstation.
 
-Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <application name> (create OpenShift app, <application name>  with Large gear)
+Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <openshift domain> <application name> <gear size> (Recommended that a Medium or Large be used, based on OpenShift Online gear sizes)
+
+Step 3 - 
   
 
 
