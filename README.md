@@ -10,51 +10,51 @@ Make sure you have completed the basic OpenShift developer workstation setup suc
 
 Step 1 - Clone this git repo into an appropriate location on your developer workstation.
 
-Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <openshift domain> <application name> <gear size> (Recommended that a Medium or Large be used, based on OpenShift Online gear sizes)
+Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <openshift namespace> <openshift domain> <application name> <gear size> (Recommend at least a Medium gear, based on OpenShift Online gear sizes).  Follow script instructions, capturing Fuse Fabric Console information for future use and for Maven settings.xml update step within script.  Successful execution of the init.sh script will create a new OpenShift Application, Fuse Fabric and Container, and build/deploy a Demo/claim profile from the project to the OpenShift Fuse Fabric instance.
 
-Step 3 - 
+Step 3 - Verify access to created OpenShift Fuse Application and Fabric Console.  Using captured Fuse Fabric Admin UID/PWD, verify successful logon to the Fabric Console using the URL captured from Step 2.
+
+Step 4 - Add the JBoss/Fuse/Full Profile to the created Container.  From the Fabric Console, make sure the Fabric view is selected, and then select/expand the Container (should have application name).  Select Add Profile, and scroll through list until JBoss folder is found, then expand selecting JBoss / Fuse / Full (see Screenshot below)
+
+(https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/05-fabric-add-fuse-full.png?raw=true)
+
+Step 5 - Add the Demo/claim Profile to the created Container.  Similar to Step 4, select Add Profile, and scroll through list until Demo folder is found, then expand selecting Demo / claim (see Screenshot below)
+
+(https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/06-fabric-add-demo-claim.png?raw=true)
+
+Step 6 - Verify that the Claim Demo profile started successfully within the Container. Switch from Fabric to Container view, and should see the following at end the log:
+
+Route: cxfRoute started and consuming from: Endpoint[cxf://bean:claimEndpoint]
+Route: applyRoute started and consuming from: Endpoint[direct://apply]
+Route: cancelRoute started and consuming from: Endpoint[direct://cancel]
+Route: route1 started and consuming from: Endpoint[cxfrs://bean:statusEndpoint]
+Total 4 routes, of which 4 is started.
+Apache Camel 2.12.0.redhat-610379 (CamelContext: blueprintContext) started in 2.810 seconds
+Done.
+
+Step 7 - Review the Fuse/Apache Camel Demo routes.  Select the Container / Camel  View and you should see that the four routes are active (see Screenshot below).
+
+(https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/07-fabric-fuse-camel-routes.png?raw=true)
+
+Step 8 - Review the available service definitions at http://<application url>/cxf (replace <application url> with your OpenShift App)
+
+Step 9 - Execute/Smoke Test the Demo SOAP and REST Services.  Download (if you don't already have it installed) the latest release of SOAP UI 5.x, and import the SOAP UI project provided at ../claim-cxf-cxfrs/project/soapui .  Replace <application url> with your OpenShift App within the defined SOAP and REST endpoints in the SOAP UI project.
+
+Step 10 - (Optional) Import the Fuse Project into JBoss Developer Studio/Eclipse.  Ensure the Fuse/JBDS Plugins are installed, and import the project located at ../claim-cxf-cxfrs/project/claimdemo.  
   
-
 
 Fuse 6.1 Cartridge Implementation Constraints
 ---------------------------------------------
+For those already familiar with OpenShift having used the JBoss EAP/AS or other Web Technology Cartridges, you will have noticed some differences/constraints on the initial release of the Fuse Cartridge.  While an OpenShift application git repo can be created/associated to the OpenShift application, the typical git commit/push deployment cycle is not currently supported.  This is due to some of the complexity involved in integrating the Mavin:Fabric8 deployment plugin, which will potentially resolved in a future release.  For now, deployment must be performed as part of either a local or external CI/CD maven build with appropriate Server entry in the supporting Maven settings.xml file, which was the process used in the provided init.sh .
 
-Setup and configuration
+?Autoscaling?
+
+?Fuse A-MQ?
+
+Demo Videos
 -----------------------
 
-Download JBoss Fuse from jboss.org, and place the downloaded zip file under installs folder.
+Christina Lyn has created several supporting video's installing the demo locally:
 
-Add fabric server passwords for Maven Plugin to your ~/.m2/settings.xml file the fabric server's user and password so that the maven plugin can login to the fabric.
-
-```
-<server>
-  <id>fabric8.upload.repo</id>
-  <username>admin</username>
-  <password>admin</password>
-</server>
-```
-
-run 
-```
-init.sh
-```
-
-It will setup JBoss Fuse, install fabric, build and deploy the profile. 
-
-To run the demo, in browser enter http://localhost:8181 and login with ID/PWD of admin/admin
-
-Under Runtime, you will see list of containers, and click on the small icon on the righthand-side of the testcon container
-![Fabric list](https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/01-fabric-container-list.png?raw=true)
-You can also checkout the registry
-![Fabric list](https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/02-registry.png?raw=true)
-
-And either use browser to run it 
-![Fabric list](https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/03-browser.png?raw=true)
-Or you can use SOAP UI to play with the SOAP Web Services.
-![Fabric list](https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/04-soapui.png?raw=true)
-
-
-The demo video are located here too:
-
-https://vimeo.com/115418661
-https://vimeo.com/115560431
+https://vimeo.com/115418661  (?Content?)
+https://vimeo.com/115560431  (?Content?)
