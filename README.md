@@ -16,7 +16,7 @@ Step 3 - Verify access to created OpenShift Fuse Application and Fabric Console.
 
 Step 4 - Add the JBoss/Fuse/Full Profile to the created Container.  From the Fabric Console, make sure the Fabric view is selected, and then select/expand the Container (should have application name).  Select Add Profile, and scroll through list until JBoss folder is found, then expand selecting JBoss / Fuse / Full (see Screenshot below)
 
-![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/blob/master/doc/pic/01-fabric-container-list.png?raw=true)
+![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/01-fabric-container-list.png?raw=true)
 
 Step 5 - Add the Demo/claim Profile to the created Container.  Similar to Step 4, select Add Profile, and scroll through list until Demo folder is found, then expand selecting Demo / claim (see Screenshot below)
 
