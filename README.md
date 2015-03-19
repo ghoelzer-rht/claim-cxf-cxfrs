@@ -49,14 +49,10 @@ Fuse 6.1 Cartridge Implementation Constraints
 ---------------------------------------------
 For those already familiar with OpenShift having used the JBoss EAP/AS or other Web Technology Cartridges, you will have noticed some differences/constraints on the initial release of the Fuse Cartridge.  While an OpenShift application git repo can be created/associated to the OpenShift application, the typical git commit/push deployment cycle is not currently supported.  This is due to some of the complexity involved in integrating the Mavin:Fabric8 deployment plugin, which will potentially resolved in a future release.  For now, deployment must be performed as part of either a local or external CI/CD maven build with appropriate Server entry in the supporting Maven settings.xml file, which was the process used in the provided init.sh .
 
-?Autoscaling?
-
-?Fuse A-MQ?
-
 Demo Videos
 -----------------------
 
-Christina Lyn has created several supporting video's installing the demo locally:
+Christina Lyn has created several supporting video's on Implementing WebServices with Camel using CXF SOAP and Rest with CXFRS:
 
-https://vimeo.com/115418661  (?Content?)
-https://vimeo.com/115560431  (?Content?)
+https://vimeo.com/115418661  (Part One)
+https://vimeo.com/115560431  (Part Two)
