@@ -38,7 +38,7 @@ Step 7 - Review the Fuse/Apache Camel Demo routes.  Select the Container / Camel
 
 ![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/03-fuseclaim-camel-routes.png?raw=true)
 
-Step 8 - Review the available service definitions at http://<application url>/cxf (replace <application url> with your OpenShift App)
+Step 8 - Review the available service definitions at "http://<application url>/cxf" (replace "<application url>" with your OpenShift App)
 
 Step 9 - Execute/Smoke Test the Demo SOAP and REST Services.  Download (if you don't already have it installed) the latest release of SOAP UI 5.x, and import the SOAP UI project provided at ../claim-cxf-cxfrs/project/soapui .  Replace <application url> with your OpenShift App within the defined SOAP and REST endpoints in the SOAP UI project.
 
