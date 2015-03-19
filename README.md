@@ -14,13 +14,15 @@ Step 2 - cd to ../claim-cxf-cxfrs and run init.sh <openshift namespace> <openshi
 
 Step 3 - Verify access to created OpenShift Fuse Application and Fabric Console.  Using captured Fuse Fabric Admin UID/PWD, verify successful logon to the Fabric Console using the URL captured from Step 2.
 
-Step 4 - Add the JBoss/Fuse/Full Profile to the created Container.  From the Fabric Console, make sure the Fabric view is selected, and then select/expand the Container (should have application name).  Select Add Profile, and scroll through list until JBoss folder is found, then expand selecting JBoss / Fuse / Full (see Screenshot below)
+Step 4 - Add the JBoss/Fuse/Full Profile to the created Container.  From the Fabric Console, make sure the Fabric view is selected, and then select/expand the Container (see Screenshot below).  
 
-![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/01-fabric-container-list.png?raw=true)
+![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/01-fuseclaim-profile-add.tiff?raw=true)
 
-Step 5 - Add the Demo/claim Profile to the created Container.  Similar to Step 4, select Add Profile, and scroll through list until Demo folder is found, then expand selecting Demo / claim (see Screenshot below)
+Select Add Profile, and scroll through list until JBoss folder is found, then expand selecting JBoss / Fuse / Full (see Screenshot below)
 
-![Fabric list](https://raw.githubusercontent.com/weimeilin79/claim-cxf-cxfrs/master/doc/pic/06-fabric-add-demo-claim.png?raw=true)
+![Fabric list](https://raw.githubusercontent.com/ghoelzer-rht/claim-cxf-cxfrs/master/doc/pic/02-fuseclaim-profile-add.tiff?raw=true)
+
+Step 5 - Add the Demo/claim Profile to the created Container.  Similar to Step 4, select Add Profile, and scroll through list until Demo folder is found, then expand selecting Demo / claim
 
 Step 6 - Verify that the Claim Demo profile started successfully within the Container. Switch from Fabric to Container view, and should see the following at end the log:
 
