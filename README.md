@@ -6,7 +6,7 @@ Fuse/Apache Camel CXF and CXFRS components are used to build the web services. T
 
 OpenShift Application Setup
 ---------------------------
-Make sure you have completed the basic OpenShift developer workstation setup such as installing the RHC client tools, generating and registering the supporting SSH keys.  See https://developers.openshift.com/en/getting-started-overview.html for detailed instructions.  The demo relies on using JBoss Developer Studio Version ?8? for the defined Camel Components, along with Maven for build/deployment, and JDK 1.7. Once complete, perform the following steps to create the ClaimDemo OpenShift application and Fuse Fabric with initial Container.
+Make sure you have completed the basic OpenShift developer workstation setup such as installing the RHC client tools, generating and registering the supporting SSH keys.  See https://developers.openshift.com/en/getting-started-overview.html for detailed instructions.  The demo relies on using JBoss Developer Studio Version 7 or higherfor the defined Camel Components, along with Maven for build/deployment, and JDK 1.7. Once complete, perform the following steps to create the ClaimDemo OpenShift application and Fuse Fabric with initial Container.
 
 Step 1 - Clone this git repo into an appropriate location on your developer workstation.
 
@@ -47,7 +47,7 @@ Step 10 - (Optional) Import the Fuse Project into JBoss Developer Studio/Eclipse
 
 Fuse 6.1 Cartridge Implementation Constraints
 ---------------------------------------------
-For those already familiar with OpenShift having used the JBoss EAP/AS or other Web Technology Cartridges, you will have noticed some differences/constraints on the initial release of the Fuse Cartridge.  While an OpenShift application git repo can be created/associated to the OpenShift application, the typical git commit/push deployment cycle is not currently supported.  This is due to some of the complexity involved in integrating the Mavin:Fabric8 deployment plugin, which will potentially resolved in a future release.  For now, deployment must be performed as part of either a local or external CI/CD maven build with appropriate Server entry in the supporting Maven settings.xml file, which was the process used in the provided init.sh .
+For those already familiar with OpenShift having used the JBoss EAP/AS or other Web Technology Cartridges, you will have noticed some differences/constraints on the initial release of the Fuse Cartridge.  While an OpenShift application git repo can be created/associated to the OpenShift application, the typical git commit/push deployment cycle is not currently supported.  This is due to some of the complexity involved in integrating the Maven:Fabric8 deployment plugin, which will potentially resolved in a future release.  For now, deployment must be performed as part of either a local or external CI/CD maven build with appropriate Server entry in the supporting Maven settings.xml file, which was the process used in the provided init.sh .
 
 Demo Videos
 -----------------------
